@@ -267,7 +267,35 @@ Scope {
                 return SettingsData.getFilteredScreens("lockScreen").includes(screen);
             }
 
-            color: isActiveScreen ? "transparent" : SettingsData.lockScreenInactiveColor
+            readonly property bool hasWallpaperImage: {
+                if (SettingsData.lockScreenWallpaperPath !== "")
+                    return true;
+                var w = SessionData.getMonitorWallpaper(currentScreenName);
+                return w && !w.startsWith("#");
+            }
+
+            readonly property bool showBlurredInactive: !isActiveScreen
+                && SettingsData.lockScreenBlurInactiveBackground
+                && hasWallpaperImage
+
+            color: isActiveScreen || showBlurredInactive ? "transparent" : SettingsData.lockScreenInactiveColor
+
+            Loader {
+                anchors.fill: parent
+                active: lockSurface.showBlurredInactive
+                asynchronous: true
+
+                sourceComponent: LockScreenWallpaperBackground {
+                    screenName: lockSurface.currentScreenName
+                }
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                color: "black"
+                opacity: 0.4
+                visible: lockSurface.showBlurredInactive
+            }
 
             LockSurface {
                 anchors.fill: parent

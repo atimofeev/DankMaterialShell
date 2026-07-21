@@ -4718,22 +4718,61 @@
     "description": "Bind lock screen to dbus signals from loginctl. Disable if using an external lock screen"
   },
   {
+    "section": "lockScreenBlurInactiveBackground",
+    "label": "Blur wallpaper on inactive monitors",
+    "tabIndex": 11,
+    "category": "Lock Screen",
+    "keywords": [
+      "background",
+      "bg",
+      "blur",
+      "blurred",
+      "color",
+      "colour",
+      "desktop",
+      "hue",
+      "image",
+      "inactive",
+      "lock",
+      "lockscreen",
+      "login",
+      "monitor",
+      "monitors",
+      "password",
+      "picture",
+      "screen",
+      "security",
+      "show",
+      "solid",
+      "tint",
+      "version",
+      "wallpaper"
+    ],
+    "description": "Show a blurred version of the lock screen wallpaper on inactive monitors instead of the solid color"
+  },
+  {
     "section": "lockDisplay",
     "label": "Display Assignment",
     "tabIndex": 11,
     "category": "Lock Screen",
     "keywords": [
       "assignment",
+      "choose",
       "display",
+      "interface",
       "lock",
+      "lockscreen",
       "login",
       "monitor",
+      "monitors",
       "output",
       "password",
       "screen",
-      "security"
+      "security",
+      "show"
     ],
-    "icon": "monitor"
+    "icon": "monitor",
+    "description": "Choose which monitors show the lock screen interface"
   },
   {
     "section": "lockScreenVideoEnabled",

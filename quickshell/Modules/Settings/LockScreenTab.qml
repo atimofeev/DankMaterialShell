@@ -722,6 +722,8 @@ Item {
                 iconName: "monitor"
                 title: I18n.tr("Display Assignment")
                 settingKey: "lockDisplay"
+                tags: ["lock", "screen", "display", "assignment", "monitor", "output"]
+                description: I18n.tr("Choose which monitors show the lock screen interface")
 
                 StyledText {
                     text: I18n.tr("Choose which monitors show the lock screen interface. Other monitors will display a solid color for OLED burn-in protection.")
@@ -795,6 +797,19 @@ Item {
                             }
                         }
                     }
+                }
+
+                SettingsToggleRow {
+                    settingKey: "lockScreenBlurInactiveBackground"
+                    tags: ["lock", "screen", "inactive", "monitor", "blur", "wallpaper", "background"]
+                    text: I18n.tr("Blur wallpaper on inactive monitors")
+                    description: I18n.tr("Show a blurred version of the lock screen wallpaper on inactive monitors instead of the solid color")
+                    visible: {
+                        var prefs = SettingsData.screenPreferences?.lockScreen;
+                        return Array.isArray(prefs) && !prefs.includes("all") && prefs.length > 0;
+                    }
+                    checked: SettingsData.lockScreenBlurInactiveBackground
+                    onToggled: checked => SettingsData.set("lockScreenBlurInactiveBackground", checked)
                 }
             }
         }

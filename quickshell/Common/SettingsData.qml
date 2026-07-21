@@ -904,6 +904,7 @@ Singleton {
     property string lockU2fPamPath: ""
     property bool greeterPamExternallyManaged: false
     property string lockScreenInactiveColor: "#000000"
+    property bool lockScreenBlurInactiveBackground: false
     property int lockScreenNotificationMode: 0
     property bool lockScreenVideoEnabled: false
     property string lockScreenVideoPath: ""

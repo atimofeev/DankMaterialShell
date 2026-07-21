@@ -465,6 +465,7 @@ var SPEC = {
     lockPamExternallyManaged: { def: false },
     lockU2fPamPath: { def: "" },
     lockScreenInactiveColor: { def: "#000000" },
+    lockScreenBlurInactiveBackground: { def: false },
     lockScreenNotificationMode: { def: 0 },
     lockScreenVideoEnabled: { def: false },
     lockScreenVideoPath: { def: "" },
